@@ -19,13 +19,13 @@ bindkey '^g' peco-src
 export LANG=ja_JP.UTF-8
 export SHELL=/bin/zsh
 export GOPATH=~/.go
-source <(/home/linuxbrew/.linuxbrew/bin/kubectl completion zsh)
+source <($HOME/.linuxbrew/bin/kubectl completion zsh)
 export CLOUDSDK_PYTHON=/usr/bin/python
 
 autoload -U add-zsh-hook
 #if [[ -z $TMUX ]]; then
 #fi
-export PATH=$PATH:$HOME/.dev/dbin:/home/linuxbrew/.linuxbrew/bin:$HOME/.dev/bin:$HOME/.go/bin:$HOME/go/1.13.4/bin
+export PATH=$PATH:$HOME/.dev/dbin:/$HOME/.linuxbrew/bin:$HOME/.dev/bin:$HOME/.go/bin:$HOME/go/1.13.4/bin
 export KUBECONFIG=`kubeconfig.sh | tail -1`
 eval "$(anyenv init - --no-rehash)"
 eval "$(ssh-agent)"
