@@ -1,0 +1,10 @@
+.envrc
+.direnv
+.ignore/
+takutaka*
+.takutaka*
+__pycache__
+*kubeconfig
+dockerconfig.json
+*.swp
+.terraform

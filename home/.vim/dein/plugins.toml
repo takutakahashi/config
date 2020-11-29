@@ -1,0 +1,46 @@
+[[plugins]] # カラースキーマ
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    colorscheme hybrid
+    set background=dark
+'''
+
+[[plugins]]
+repo = 'ConradIrwin/vim-bracketed-paste'
+
+[[plugins]]
+repo = 'kevinw/pyflakes-vim'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+hook_add = '''
+    let g:syntastic_python_checkers = ["flake8"]
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap T :NERDTreeFocus<CR>
+  let NERDTreeShowHidden = 1
+'''
+
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = '''
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+if executable('go-langserver')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'go-langserver',
+        \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd BufWritePre *.go LspDocumentFormatSync
+endif
+'''
