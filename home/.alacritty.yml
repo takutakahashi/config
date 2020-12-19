@@ -1,3 +1,5 @@
+shell:
+  program: /bin/zsh
 mouse:
   url:
     launcher: FireFox
