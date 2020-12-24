@@ -1,0 +1,37 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "vim.statusBarColorControl": false,
+    "go.formatTool": "goimports",
+      "go.useLanguageServer": true,
+  "go.alternateTools": {
+    "go-langserver": "gopls"
+  },
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "go.autocompleteUnimportedPackages": true,
+  "gopls": {
+    "usePlaceholders": true
+  },
+    "keyboard.dispatch": "keyCode",
+    "editor.fontFamily": "'Ricty Diminished'",
+    "window.zoomLevel": 0,
+    "terraform.indexing": {
+        "enabled": false,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+    },
+    "terraform.languageServer": {
+        "external": true,
+        "args": [
+            "serve"
+        ]
+    }
+}
