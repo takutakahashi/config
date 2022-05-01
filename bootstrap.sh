@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp -f home/.zshrc $HOME/.zshrc
+cp -f $HOME/.dotfiles/home/.zshrc $HOME/.zshrc
