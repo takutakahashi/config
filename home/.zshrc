@@ -28,6 +28,7 @@ autoload -U add-zsh-hook
 export PATH=$PATH:$HOME/.dev/dbin:/$HOME/.linuxbrew/bin:$HOME/.dev/bin:$HOME/.go/bin:$HOME/go/1.13.4/bin
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export KUBECONFIG=`kubeconfig.sh | tail -1`
+export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml
 eval "$(anyenv init - --no-rehash)"
 eval "$(ssh-agent)"
 ssh-add
