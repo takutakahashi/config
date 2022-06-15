@@ -7,7 +7,7 @@
 # 環境変数
 #peco+ghqのキーバインド
 function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  local selected_dir=$(find `ghq root` -mindepth 3 -maxdepth 3 -type d | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
@@ -21,11 +21,13 @@ export SHELL=/bin/zsh
 export GOPATH=~/.go
 source <($HOME/.linuxbrew/bin/kubectl completion zsh)
 export CLOUDSDK_PYTHON=/usr/bin/python
+. $HOME/.asdf/asdf.sh
 
 autoload -U add-zsh-hook
 #if [[ -z $TMUX ]]; then
 #fi
-export PATH=$PATH:$HOME/.dev/dbin:/$HOME/.linuxbrew/bin:$HOME/.dev/bin:$HOME/.go/bin:$HOME/go/1.13.4/bin
+export PATH=$PATH:$HOME/.dev/dbin:/$HOME/.linuxbrew/bin:$HOME/.dev/bin:$HOME/.go/bin:$GOPATH/bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:$HOME/.rbenv/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export KUBECONFIG=`kubeconfig.sh | tail -1`
 export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml
@@ -263,3 +265,7 @@ bindkey '^g' peco-src
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+export PATH=/home/takutaka.linux/bin:$PATH
+
+[[ -e "/home/takutaka.linux/lib/oracle-cli/lib/python3.9/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/takutaka.linux/lib/oracle-cli/lib/python3.9/site-packages/oci_cli/bin/oci_autocomplete.sh"
