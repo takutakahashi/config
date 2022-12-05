@@ -1,0 +1,3 @@
+[submodule "home/.dev/bin/bitwarden-ssh-agent"]
+	path = home/.dev/bin/bitwarden-ssh-agent
+	url = https://github.com/joaojacome/bitwarden-ssh-agent
