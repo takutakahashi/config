@@ -1,0 +1,4 @@
+#!/bin/bash
+
+tsh login --proxy=$TELEPORT_CLUSTER_NAME:443 $TELEPORT_CLUSTER_NAME --bind-addr=localhost:8000
+tsh kube login $TELEPORT_CLUSTER_NAME
