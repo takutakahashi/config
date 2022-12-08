@@ -32,8 +32,15 @@ export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua
 export KUBECONFIG=`kubeconfig.sh | tail -1`
 export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml
 eval "$(anyenv init - --no-rehash)"
-eval "$(ssh-agent)"
-ssh-add
+
+# set SSH_AUTH_SOCK env var to a fixed value
+export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+
+# test whether $SSH_AUTH_SOCK is valid
+ssh-add -l 2>/dev/null >/dev/null
+
+# if not valid, then start ssh-agent using $SSH_AUTH_SOCK
+[ $? -ge 2 ] && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 
 alias c="tmux show-buffer |xsel -bi"
 alias ks="kubectx |peco |xargs kubectx"
