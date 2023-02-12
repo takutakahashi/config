@@ -42,6 +42,8 @@ ssh-add -l 2>/dev/null >/dev/null
 # if not valid, then start ssh-agent using $SSH_AUTH_SOCK
 [ $? -ge 2 ] && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 
+ssh-add -l |grep BH+oq5KSTCHXVh0k6t/tH8ajCtKxoGmfBXc2dNRCVMg >/dev/null 2>/dev/null || doppler secrets get SSH_KEY --plain |ssh-add - >/dev/null 2>/dev/null
+
 alias c="tmux show-buffer |xsel -bi"
 alias ks="kubectx |peco |xargs kubectx"
 
