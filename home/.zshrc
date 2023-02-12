@@ -127,9 +127,6 @@ setopt ignore_eof
 # '#' 以降をコメントとして扱う
 setopt interactive_comments
 
-# ディレクトリ名だけでcdする
-setopt auto_cd
-
 # cd したら自動的にpushdする
 setopt auto_pushd
 # 重複したディレクトリを追加しない
@@ -232,26 +229,11 @@ function do_enter() {
         echo -e "\e[0;33m--- git status ---\e[0m"
         git status -sb
     fi
-    echo
-    echo "[`kubectx -c`/`kubens -c`]"
-    echo
     zle reset-prompt
     return 0
 }
 zle -N do_enter
 bindkey '^m' do_enter
-
-#ssh-agentを固定パスに設定する
-agent="$HOME/.ssh/agent"
-if [ -S "$SSH_AUTH_SOCK" ]; then
-    case $SSH_AUTH_SOCK in
-    /tmp/*/agent.[0-9]*)
-        ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
-    esac
-elif [ -S $agent ]; then
-    export SSH_AUTH_SOCK=$agent
-fi
-# vim:set ft=zsh:
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -267,12 +249,6 @@ fi
 export EDITOR=vim
 bindkey '^g' peco-src
 
-# if (which zprof > /dev/null) ;then
-#   zprof | less
-# fi
-
-# tabtab source for packages
-# uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 export PATH=/home/takutaka.linux/bin:$PATH
