@@ -12,3 +12,4 @@ vim.api.nvim_set_keymap('n', 'T',
 vim.api.nvim_set_keymap('n', 'fh', "<C-w>h", {})
 vim.api.nvim_set_keymap('n', 'fl', "<C-w>l", {})
 vim.api.nvim_set_keymap('n', 'fk', "<C-w>k", {})
+vim.api.nvim_set_keymap('n', 'fj', "<C-w>j", {})
