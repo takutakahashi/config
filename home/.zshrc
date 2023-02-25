@@ -40,7 +40,7 @@ export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
 ssh-add -l 2>/dev/null >/dev/null
 
 # if not valid, then start ssh-agent using $SSH_AUTH_SOCK
-[ $? -ge 2 ] && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+[ $? -ge 2 ] && rm -f  $SSH_AUTH_SOCK && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 
 ssh-add -l |grep BH+oq5KSTCHXVh0k6t/tH8ajCtKxoGmfBXc2dNRCVMg >/dev/null 2>/dev/null || doppler secrets get SSH_KEY --plain |ssh-add - >/dev/null 2>/dev/null
 
