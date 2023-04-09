@@ -14,6 +14,11 @@ function peco-src () {
   fi
   zle clear-screen
 }
+
+function setup-all () {
+  curl https://raw.githubusercontent.com/takutakahashi/linux-desktop/master/setup.sh | bash
+}
+
 zle -N peco-src
 bindkey '^g' peco-src
 export LANG=ja_JP.UTF-8
