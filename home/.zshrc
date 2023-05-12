@@ -24,9 +24,7 @@ bindkey '^g' peco-src
 export LANG=ja_JP.UTF-8
 export SHELL=/bin/zsh
 export GOPATH=~/.go
-source <($HOME/.linuxbrew/bin/kubectl completion zsh)
-export CLOUDSDK_PYTHON=/usr/bin/python
-. $HOME/.asdf/asdf.sh
+eval "$(~/bin/rtx activate zsh)"
 
 autoload -U add-zsh-hook
 #if [[ -z $TMUX ]]; then
