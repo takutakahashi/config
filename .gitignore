@@ -1,2 +1,3 @@
 home/.config/nvim/plugin
 home/.vim/dein
+home/.dev/bin/rtx

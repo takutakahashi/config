@@ -1,2 +1,4 @@
 go 1.20.4
-ghq 1.3.0
+ghq latest
+peco latest
+direnv latest
