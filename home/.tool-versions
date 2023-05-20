@@ -8,3 +8,4 @@ krew latest
 stern latest
 argocd latest
 teleport-ent latest
+jq latest
