@@ -15,3 +15,5 @@
 [user]
 	name = Takuya TAKAHASHI
 	email = taku.takahashi120@gmail.com
+[pull]
+	rebase = false
