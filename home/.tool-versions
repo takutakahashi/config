@@ -1,5 +1,5 @@
 go 1.20.4
-ghq latest
+ghq 1.4.2
 peco latest
 direnv latest
 kubectl latest
