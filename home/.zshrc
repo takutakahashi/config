@@ -31,10 +31,7 @@ autoload -U add-zsh-hook
 #fi
 export PATH=$PATH:$HOME/.dev/dbin:/$HOME/.linuxbrew/bin:$HOME/.dev/bin:$HOME/.go/bin:$GOPATH/bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:$HOME/.rbenv/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export KUBECONFIG=`kubeconfig.sh | tail -1`
-export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml
-eval "$(anyenv init - --no-rehash)"
 
 # set SSH_AUTH_SOCK env var to a fixed value
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
@@ -45,7 +42,10 @@ ssh-add -l 2>/dev/null >/dev/null
 # if not valid, then start ssh-agent using $SSH_AUTH_SOCK
 [ $? -ge 2 ] && rm -f  $SSH_AUTH_SOCK && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 
-ssh-add -l |grep BH+oq5KSTCHXVh0k6t/tH8ajCtKxoGmfBXc2dNRCVMg >/dev/null 2>/dev/null || doppler secrets get SSH_KEY_WS --plain |ssh-add - >/dev/null 2>/dev/null
+ssh-add -l |grep p5V8d3ayisE23I4oRMksi+3hOYqRY85Zij5D7tp3NC0 >/dev/null 2>/dev/null || doppler secrets get SSH_KEY_WS --plain |ssh-add - >/dev/null 2>/dev/null
+ls /tmp/secrets >/dev/null 2>/dev/null || doppler secrets get ENV --plain > /tmp/secrets
+chmod 600 /tmp/secrets
+source /tmp/secrets
 
 alias c="tmux show-buffer |xsel -bi"
 alias ks="kubectx |peco |xargs kubectx"
