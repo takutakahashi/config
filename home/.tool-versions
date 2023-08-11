@@ -9,5 +9,8 @@ krew latest
 stern latest
 argocd latest
 teleport-ent latest
-jq latest
+jq 1.6
 doppler latest
+kubeseal 0.22.0
+kustomize latest
+ecspresso latest

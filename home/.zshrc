@@ -5,6 +5,7 @@
 # 少し凝ったzshrcを丸パクリさせてもらってます
 ########################################
 # 環境変数
+eval "$(~/.dev/bin/rtx activate zsh)"
 #peco+ghqのキーバインド
 function peco-src () {
   local selected_dir=$(find `ghq root` -mindepth 3 -maxdepth 3 -type d | peco --query "$LBUFFER")
@@ -24,12 +25,11 @@ bindkey '^g' peco-src
 export LANG=ja_JP.UTF-8
 export SHELL=/bin/zsh
 export GOPATH=~/.go
-eval "$(~/.dev/bin/rtx activate zsh)"
 
 autoload -U add-zsh-hook
 #if [[ -z $TMUX ]]; then
 #fi
-export PATH=$PATH:$HOME/.dev/dbin:/$HOME/.linuxbrew/bin:$HOME/.dev/bin:$HOME/.go/bin:$GOPATH/bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:$HOME/.rbenv/bin
+export PATH=$PATH:$HOME/.dev/bin:$HOME/.go/bin:/usr/local/bin:/usr/bin:/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export KUBECONFIG=`kubeconfig.sh | tail -1`
 
@@ -49,6 +49,7 @@ source /tmp/secrets
 
 alias c="tmux show-buffer |xsel -bi"
 alias ks="kubectx |peco |xargs kubectx"
+alias vim=nvim
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -254,6 +255,5 @@ bindkey '^g' peco-src
 
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
-export PATH=/home/takutaka.linux/bin:$PATH
 
 [[ -e "/home/takutaka.linux/lib/oracle-cli/lib/python3.9/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/home/takutaka.linux/lib/oracle-cli/lib/python3.9/site-packages/oci_cli/bin/oci_autocomplete.sh"
