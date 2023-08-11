@@ -47,6 +47,8 @@ ls /tmp/secrets >/dev/null 2>/dev/null || doppler secrets get ENV --plain > /tmp
 chmod 600 /tmp/secrets
 source /tmp/secrets
 
+ls /opt/homebrew/bin/brew >/dev/null 2>&1 && eval $(/opt/homebrew/bin/brew shellenv)
+
 alias c="tmux show-buffer |xsel -bi"
 alias ks="kubectx |peco |xargs kubectx"
 alias vim=nvim
