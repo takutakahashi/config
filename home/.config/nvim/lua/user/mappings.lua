@@ -1,9 +1,9 @@
 return {
   n = {
-    ["<S-h>"] = { 'hhhhh' },
-    ["<S-j>"] = { 'jjjjj' },
-    ["<S-k>"] = { 'kkkkk', remap = true },
-    ["<S-l>"] = { 'lllll' },
+    ["<C-h>"] = { 'hhhhh' },
+    ["<C-j>"] = { 'jjjjj' },
+    ["<C-k>"] = { 'kkkkk', remap = true },
+    ["<C-l>"] = { 'lllll' },
     fh = { '<Leader>bp', remap = true },
     --fj = { '', remap = true },
     fk = { '<C-k>', remap = true },
