@@ -1,6 +1,5 @@
 tap "harelba/q"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "linyows/git-semv"
 tap "pyama86/kagiana"
 brew "xz"
